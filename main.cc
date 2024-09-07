@@ -1,20 +1,19 @@
-#include <iostream>
-#include <SDL2/SDL_image.h>
-#include "../../../../../msys64/mingw64/include/SDL2/SDL.h"
+#include "game.hh"
+
+game* g = nullptr;
 
 int main(int argc, char* argv[])
 {
-    std::cout << "Hello World!\n";
-    SDL_Init(SDL_INIT_VIDEO);
-    SDL_Window* window = SDL_CreateWindow("Title", 
-                                          SDL_WINDOWPOS_CENTERED, 
-                                          SDL_WINDOWPOS_CENTERED,
-                                          800, 600, SDL_WINDOW_SHOWN);
-    SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, 0);
-    SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
-    SDL_RenderClear(renderer);
-    
-    SDL_RenderPresent(renderer);
-    SDL_Delay(3000);
+    g = new game();
+    g->init("Roguelike", SDL_WINDOWPOS_CENTERED, 
+                         SDL_WINDOWPOS_CENTERED, 
+                         640, 400, false);
+    while(!g->quit())
+    {
+        g->handle_events();
+        g->update();
+        g->render();
+    }
+    g->clean();
     return 0;
 }
