@@ -1,6 +1,6 @@
 #include "game.hh"
 
-game::game() : exit(false) {} 
+game::game()  {} 
 game::~game() {}
 
 void game::init(const char* title, 
