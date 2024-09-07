@@ -7,7 +7,8 @@
 class texture
 {
 public:
-    static SDL_Texture* load_texture(const char* file, SDL_Renderer* ren);
+    static SDL_Texture* load_texture(const char* file, 
+                                     SDL_Renderer* ren);
 };
 
 #endif //TEXTURE_HH_
