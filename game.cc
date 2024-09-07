@@ -1,4 +1,5 @@
 #include "game.hh"
+#include "texture.hh"
 
 SDL_Texture* player_text;
 SDL_Rect dst_r;
@@ -22,15 +23,13 @@ void game::init(const char* title,
         }
         window = SDL_CreateWindow(title, x, y, w, h, flags);
         renderer = SDL_CreateRenderer(window, -1, 0);
-        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         exit = false;
     }
     else
         exit = true;
 
-    SDL_Surface* tmp_srfc = IMG_Load("assets/wizard.png");
-    player_text = SDL_CreateTextureFromSurface(renderer, tmp_srfc);
-    SDL_FreeSurface(tmp_srfc);
+    player_text = texture::load_texture("assets/wizard.png", renderer);
 }
 
 void game::update()

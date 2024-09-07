@@ -15,9 +15,17 @@ int main(int argc, char* argv[])
                          640, 400, false);
     while(!g->quit())
     {
+        frame_start = SDL_GetTicks();
+        
         g->handle_events();
         g->update();
         g->render();
+
+        frame_time = SDL_GetTicks() - frame_start;
+        if(frame_delay > frame_time)
+        {
+            SDL_Delay(frame_delay - frame_time);
+        }
     }
     g->clean();
     return 0;
