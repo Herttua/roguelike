@@ -1,8 +1,9 @@
 #include "game.hh"
 #include "texture.hh"
+#include "object.hh"
 
-SDL_Texture* player_text;
-SDL_Rect dst_r;
+object* obj;
+
 
 game::game()  {} 
 game::~game() {}
@@ -29,13 +30,12 @@ void game::init(const char* title,
     else
         exit = true;
 
-    player_text = texture::load_texture("assets/wizard.png", renderer);
+    obj = new object("assets/wizard.png", renderer, 64, 64);
 }
 
 void game::update()
 {
-    dst_r.w = 24;
-    dst_r.h = 24;
+    obj->update();
 }
 
 void game::handle_events()
@@ -68,15 +68,20 @@ void game::handle_events()
 void game::render()
 {
     SDL_RenderClear(renderer);
-    SDL_RenderCopy(renderer, player_text, 0, &dst_r);
+    ///RENDER START///
+
+    obj->render();
+
+    ///RENDER END///
     SDL_RenderPresent(renderer);
 }
 
 void game::clean()
 {
+    delete obj;
+
     SDL_DestroyWindow(window);
     SDL_DestroyRenderer(renderer);
-    SDL_DestroyTexture(player_text);
     SDL_Quit();
     std::cout << "All cleaned up\n";
 }
