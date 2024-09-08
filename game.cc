@@ -1,9 +1,11 @@
 #include "game.hh"
 #include "texture.hh"
 #include "object.hh"
+#include "tilemap.hh"
 
 SDL_Renderer* game::renderer = nullptr;
 object* obj;
+tilemap* world;
 
 game::game()  {} 
 game::~game() {}
@@ -30,7 +32,8 @@ void game::init(const char* title,
     else
         exit = true;
 
-    obj = new object("assets/wizard.png", 64, 64);
+    obj = new object("assets/wizard.png", 72, 72);
+    world = new tilemap();
 }
 
 void game::update()
@@ -70,6 +73,7 @@ void game::render()
     SDL_RenderClear(renderer);
     ///RENDER START///
 
+    world->draw();
     obj->render();
 
     ///RENDER END///
@@ -79,6 +83,7 @@ void game::render()
 void game::clean()
 {
     delete obj;
+    delete world;
 
     SDL_DestroyWindow(window);
     SDL_DestroyRenderer(renderer);

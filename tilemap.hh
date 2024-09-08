@@ -9,7 +9,7 @@ public:
     tilemap();
     ~tilemap();
 
-    void load();
+    void load(int arr[20][25]);
     void draw();
 
 private:
