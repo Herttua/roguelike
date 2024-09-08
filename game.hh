@@ -21,10 +21,11 @@ public:
     void clean();
     bool quit() { return exit; }
 
+    static SDL_Renderer* renderer;
+
 private:
     bool exit;
-    SDL_Window*   window;
-    SDL_Renderer* renderer;
+    SDL_Window* window;
 };
 
 #endif //GAME_HH_

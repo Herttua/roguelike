@@ -8,7 +8,6 @@ class object
 public:
     object();
     object(const char* texture_sht, 
-           SDL_Renderer* r,
            int x, int y);
     ~object();
 
@@ -20,7 +19,6 @@ private:
     int y_pos;
     SDL_Texture* txtr;
     SDL_Rect src_rect, dst_rect;
-    SDL_Renderer* rend;
 };
 
 #endif //OBJECT_HH_

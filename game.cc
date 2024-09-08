@@ -2,8 +2,8 @@
 #include "texture.hh"
 #include "object.hh"
 
+SDL_Renderer* game::renderer = nullptr;
 object* obj;
-
 
 game::game()  {} 
 game::~game() {}
@@ -30,7 +30,7 @@ void game::init(const char* title,
     else
         exit = true;
 
-    obj = new object("assets/wizard.png", renderer, 64, 64);
+    obj = new object("assets/wizard.png", 64, 64);
 }
 
 void game::update()

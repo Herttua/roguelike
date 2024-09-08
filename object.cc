@@ -5,13 +5,11 @@ object::object() {}
 object::~object() 
 {
     SDL_DestroyTexture(txtr);
-    SDL_DestroyRenderer(rend);
 }
 object::object(const char* texture_sht, 
-               SDL_Renderer* r,
-               int x, int y) : rend(r), x_pos(x), y_pos(y)
+               int x, int y) : x_pos(x), y_pos(y)
 {
-    txtr = texture::load_texture(texture_sht, r);
+    txtr = texture::load_texture(texture_sht);
 }
 
 void object::update()
@@ -27,5 +25,5 @@ void object::update()
 
 void object::render()
 {
-    SDL_RenderCopy(rend, txtr, &src_rect, &dst_rect);
+    SDL_RenderCopy(game::renderer, txtr, &src_rect, &dst_rect);
 }
