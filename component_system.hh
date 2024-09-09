@@ -56,7 +56,7 @@ public:
 
     template <typename T> bool has_component() const
     {
-        return comp_bits[get_component_id<T>];
+        return comp_bits[get_component_id<T>()];
     }
 
     template <typename T, typename... TArgs>
@@ -85,6 +85,41 @@ private:
     std::vector<std::unique_ptr<component>> components;
     component_array comp_arr;
     component_bitset comp_bits;
+};
+
+class master
+{
+public:
+    void update()
+    {
+        for(auto& e : entities) e->update();
+    }
+    
+    void draw()
+    {
+        for(auto& e : entities) e->draw();   
+    }
+
+    void refresh()
+    {
+        entities.erase(std::remove_if(std::begin(entities), std::end(entities), 
+            [](const std::unique_ptr<entity> &m_ent)
+            {
+                return !m_ent->is_active();
+            }),
+                std::end(entities));
+    }
+
+    entity& add_entity()
+    {
+        entity *e = new entity();
+        std::unique_ptr<entity> u_ptr{e};
+        entities.emplace_back(std::move(u_ptr));
+        return *e;
+    }
+
+private:
+    std::vector<std::unique_ptr<entity>> entities;
 };
 
 #endif //COMPONENT_SYSTEM_HH_

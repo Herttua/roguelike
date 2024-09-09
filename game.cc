@@ -2,10 +2,15 @@
 #include "texture.hh"
 #include "object.hh"
 #include "tilemap.hh"
+#include "component_system.hh"
+#include "components.hh"
 
 SDL_Renderer* game::renderer = nullptr;
 object* obj;
 tilemap* world;
+
+master mastr;
+auto& player(mastr.add_entity());
 
 game::game()  {} 
 game::~game() {}
@@ -34,11 +39,13 @@ void game::init(const char* title,
 
     obj = new object("assets/wizard.png", 72, 72);
     world = new tilemap();
+    player.add_component<position_component>();
 }
 
 void game::update()
 {
     obj->update();
+    mastr.update();
 }
 
 void game::handle_events()
