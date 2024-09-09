@@ -85,8 +85,7 @@ void tilemap::draw()
                 texture::draw(water, src, dst);
                 break;
             
-            default:
-                break;
+            default: break;
             }        
         }
     }
