@@ -15,7 +15,15 @@ public:
 
     void init() override
     {
+        pos = &entity->get_component<position_component>();
         
+        src_rect.x = 0;
+        src_rect.y = 0;
+        src_rect.w = 24;
+        src_rect.h = 24;
+
+        dst_rect.w = 24;
+        dst_rect.h = 24;
     }
 
     void update() override
@@ -25,7 +33,7 @@ public:
 
     void draw() override
     {
-        
+
     }
 
 private:
