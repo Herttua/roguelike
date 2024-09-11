@@ -1,13 +1,13 @@
-#ifndef POSITION_HH_
-#define POSITION_HH_
+#ifndef TRANSFORM_HH_
+#define TRANSFORM_HH_
 
 #include "components.hh"
 
-class position_component : public component
+class transform : public component
 {
 public:
-    position_component() : x_pos(0), y_pos(0) {}
-    position_component(int x, int y) : x_pos(x), y_pos(y) {}
+    transform() : x_pos(0), y_pos(0) {}
+    transform(int x, int y) : x_pos(x), y_pos(y) {}
 
     int x() { return x_pos; }
     int y() { return y_pos; }
@@ -28,4 +28,4 @@ private:
     int y_pos;
 };
 
-#endif //POSITION_HH_
+#endif //TRANSFORM_HH_

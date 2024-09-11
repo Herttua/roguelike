@@ -10,12 +10,17 @@ public:
     sprite() = default;
     sprite(const char* file)
     {
+        set_tex(file);
+    }
+
+    void set_tex(const char* file)
+    {
         tex = texture::load(file);
     }
 
     void init() override
     {
-        pos = &ent->get_component<position_component>();
+        pos = &ent->get_component<transform>();
         
         src_rect.x = 0;
         src_rect.y = 0;
@@ -38,7 +43,7 @@ public:
     }
 
 private:
-    position_component* pos;
+    transform* pos;
     SDL_Texture* tex;
     SDL_Rect src_rect, dst_rect;
 };
