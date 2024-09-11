@@ -14,7 +14,7 @@ public:
 
     void update() override
     {
-        //x_pos++;
+        x_pos++;
     }
 
     void set_pos(int x, int y)
