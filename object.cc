@@ -9,7 +9,7 @@ object::~object()
 object::object(const char* texture_sht, 
                int x, int y) : x_pos(x), y_pos(y)
 {
-    txtr = texture::load_texture(texture_sht);
+    txtr = texture::load(texture_sht);
 }
 
 void object::update()

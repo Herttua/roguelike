@@ -80,7 +80,7 @@ public:
     template <typename T> T& get_component() const
     {
         auto ptr(comp_arr[get_component_id<T>()]);
-        return *static_cast<T>(ptr);
+        return *static_cast<T*>(ptr);
     }
 
 private:

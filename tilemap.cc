@@ -34,9 +34,9 @@ tilemap::~tilemap()
 
 tilemap::tilemap() 
 {
-    grass = texture::load_texture("assets/grass.png");
-    dirt  = texture::load_texture("assets/dirt.png");
-    water = texture::load_texture("assets/water.png");
+    grass = texture::load("assets/grass.png");
+    dirt  = texture::load("assets/dirt.png");
+    water = texture::load("assets/water.png");
 
     load(lvl1);
     src.x = 0;

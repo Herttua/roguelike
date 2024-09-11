@@ -36,10 +36,12 @@ void game::init(const char* title,
 
     world = new tilemap();
     player.add_component<position_component>();
+    player.add_component<sprite>("assets/wizard.png");
 }
 
 void game::update()
 {
+    mastr.refresh();
     mastr.update();
 }
 
