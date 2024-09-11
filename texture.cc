@@ -12,5 +12,5 @@ SDL_Texture* texture::load(const char* file)
 
 void texture::draw(SDL_Texture* txtr, SDL_Rect src, SDL_Rect dst)
 {
-    SDL_RenderCopy(game::renderer, txtr, &src, &dst);
+    SDL_RenderCopy(game::renderer, txtr, NULL, &dst);
 }

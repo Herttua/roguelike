@@ -35,7 +35,7 @@ void game::init(const char* title,
         exit = true;
 
     world = new tilemap();
-    player.add_component<position_component>();
+    player.add_component<position_component>(50, 50);
     player.add_component<sprite>("assets/wizard.png");
 }
 
@@ -78,6 +78,7 @@ void game::render()
     ///RENDER START///
 
     world->draw();
+    mastr.draw();
 
     ///RENDER END///
     SDL_RenderPresent(renderer);

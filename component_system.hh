@@ -21,7 +21,7 @@ inline component_id get_component_id()
 
 template <typename T> inline component_id get_component_id() noexcept
 {
-    static component_id type_id = get_component_id();
+    static component_id type_id { get_component_id() };
     return type_id;
 }
 
