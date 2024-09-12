@@ -22,7 +22,8 @@ public:
     bool quit() { return exit; }
 
     static SDL_Renderer* renderer;
-
+    static SDL_Event     event;
+    
 private:
     bool exit;
     SDL_Window* window;

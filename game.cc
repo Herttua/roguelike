@@ -4,10 +4,10 @@
 #include "components.hh"
 
 SDL_Renderer* game::renderer = nullptr;
-tilemap* world;
-
-master mastr;
-auto& player(mastr.add_entity());
+SDL_Event     game::event;
+tilemap*      world;
+master        mastr;
+auto&         player(mastr.add_entity());
 
 game::game()  {} 
 game::~game() {}
@@ -52,7 +52,6 @@ void game::update()
 
 void game::handle_events()
 {
-    SDL_Event event;
     SDL_PollEvent(&event);
     switch (event.type)
     {

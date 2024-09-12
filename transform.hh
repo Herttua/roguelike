@@ -8,6 +8,8 @@ class transform : public component
 {
 public:
     vector2 position;
+    vector2 velocity;
+    int speed = 3;
 
     transform() 
     {
@@ -22,12 +24,19 @@ public:
 
     ~transform() {}
 
+    void init() override
+    {
+        velocity.x = 0.0f;
+        velocity.y = 0.0f;
+    }
+
     int x() { return position.x; }
     int y() { return position.y; }
 
     void update() override
     {
-        position.x++;
+        position.x += velocity.x * speed;
+        position.y += velocity.y * speed;
     }
 
     void set_pos(float x, float y)
