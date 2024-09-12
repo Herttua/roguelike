@@ -43,6 +43,11 @@ void game::update()
 {
     mastr.refresh();
     mastr.update();
+
+    if(player.get_component<transform>().x() > 150)
+    {
+        player.get_component<transform>().set_pos(200, 300);
+    }
 }
 
 void game::handle_events()

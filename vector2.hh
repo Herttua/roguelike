@@ -5,6 +5,7 @@
 
 class vector2
 {
+public:
     float x;
     float y;
 

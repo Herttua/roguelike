@@ -2,30 +2,39 @@
 #define TRANSFORM_HH_
 
 #include "components.hh"
+#include "vector2.hh"
 
 class transform : public component
 {
 public:
-    transform() : x_pos(0), y_pos(0) {}
-    transform(int x, int y) : x_pos(x), y_pos(y) {}
+    vector2 position;
 
-    int x() { return x_pos; }
-    int y() { return y_pos; }
+    transform() 
+    {
+        position.x = 0.0f;
+        position.y = 0.0f;
+    }
+    transform(float x, float y) 
+    {
+        position.x = x;
+        position.y = y;
+    }
+
+    ~transform() {}
+
+    int x() { return position.x; }
+    int y() { return position.y; }
 
     void update() override
     {
-        x_pos++;
+        position.x++;
     }
 
-    void set_pos(int x, int y)
+    void set_pos(float x, float y)
     {
-        x_pos = x;
-        y_pos = y;
-    }
-
-private:
-    int x_pos;
-    int y_pos;
+        position.x = x;
+        position.y = y;
+    }    
 };
 
 #endif //TRANSFORM_HH_

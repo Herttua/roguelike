@@ -20,7 +20,7 @@ public:
 
     void init() override
     {
-        pos = &ent->get_component<transform>();
+        transf = &ent->get_component<transform>();
         
         src_rect.x = 0;
         src_rect.y = 0;
@@ -33,8 +33,8 @@ public:
 
     void update() override
     {
-        dst_rect.x = pos->x();
-        dst_rect.y = pos->y();
+        dst_rect.x = (int)transf->position.x;
+        dst_rect.y = (int)transf->position.y;
     }
 
     void draw() override
@@ -43,7 +43,7 @@ public:
     }
 
 private:
-    transform* pos;
+    transform* transf;
     SDL_Texture* tex;
     SDL_Rect src_rect, dst_rect;
 };
