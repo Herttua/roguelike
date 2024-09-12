@@ -1,6 +1,8 @@
 #ifndef VECTOR2_HH_
 #define VECTOR2_HH_
 
+#include <iostream>
+
 class vector2
 {
     float x;
@@ -23,7 +25,9 @@ class vector2
     vector2& operator+=(const vector2& vec);
     vector2& operator-=(const vector2& vec);
     vector2& operator*=(const vector2& vec);
-    vector2& operator/=(const vector2& vec); 
+    vector2& operator/=(const vector2& vec);
+
+    friend std::ostream& operator<<(std::ostream& stream, const vector2& vec); 
 };
 
 #endif //VECTOR2_HH_
