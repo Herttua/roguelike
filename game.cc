@@ -37,17 +37,13 @@ void game::init(const char* title,
     world = new tilemap();
     player.add_component<transform>(50, 50);
     player.add_component<sprite>("assets/wizard.png");
+    player.add_component<keyboard>();
 }
 
 void game::update()
 {
     mastr.refresh();
     mastr.update();
-
-    if(player.get_component<transform>().x() > 150)
-    {
-        player.get_component<transform>().set_pos(200, 300);
-    }
 }
 
 void game::handle_events()

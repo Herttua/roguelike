@@ -4,5 +4,6 @@
 #include "component_system.hh"
 #include "transform.hh"
 #include "sprite.hh"
+#include "keyboard.hh"
 
 #endif //COMPONENTS_HH_
