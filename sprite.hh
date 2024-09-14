@@ -35,8 +35,8 @@ public:
 
     void update() override
     {
-        dst_rect.x = (int)transf->position.x;
-        dst_rect.y = (int)transf->position.y;
+        dst_rect.x = static_cast<int>(transf->position.x);
+        dst_rect.y = static_cast<int>(transf->position.y);
     }
 
     void draw() override

@@ -86,8 +86,25 @@ vector2& vector2::operator/=(const vector2& vec)
     return this->divide(vec);
 }
 
+vector2& vector2::operator*(const int& i)
+{
+    this->x *= i;
+    this->y *= i;
+
+    return *this;
+}
+
+vector2& vector2::zero()
+{
+    this->x = 0.f;
+    this->y = 0.f;
+
+    return *this;
+}
+
 std::ostream& operator<<(std::ostream& stream, const vector2& vec)
 {
     stream << "(" << vec.x << "," << vec.y << ")";
     return stream;
 }
+

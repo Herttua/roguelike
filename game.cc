@@ -57,7 +57,8 @@ void game::update()
     if(collision::aabb(player.get_component<collider>().box,
         wall.get_component<collider>().box))
     {
-        std::cout << "Wall hit!" << std::endl;
+        //std::cout << "Wall hit!" << std::endl;
+        player.get_component<transform>().velocity * -1;
     }
 }
 

@@ -18,13 +18,11 @@ public:
 
     transform() 
     {
-        position.x = 0.0f;
-        position.y = 0.0f;
+        position.zero();
     }
     transform(int sc)
     {
-        position.x = 0.0f;
-        position.y = 0.0f;
+        position.zero();
         scale = sc;
     }
     transform(float x, float y, int w, int h, int sc) 
