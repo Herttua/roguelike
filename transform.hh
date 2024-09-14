@@ -9,7 +9,12 @@ class transform : public component
 public:
     vector2 position;
     vector2 velocity;
-    int speed = 3;
+    
+    int speed   = 3;
+
+    int width   = 24;
+    int height  = 24;
+    int scale   = 1;
 
     transform() 
     {

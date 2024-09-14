@@ -3,6 +3,7 @@
 
 #include <SDL2/SDL.h>
 #include "components.hh"
+//#include "texture.hh"
 
 class sprite : public component
 {
@@ -12,6 +13,7 @@ public:
     {
         set_tex(file);
     }
+    ~sprite() { SDL_DestroyTexture(tex); }
 
     void set_tex(const char* file)
     {
@@ -24,11 +26,11 @@ public:
         
         src_rect.x = 0;
         src_rect.y = 0;
-        src_rect.w = 24;
-        src_rect.h = 24;
+        src_rect.w = transf->width;
+        src_rect.h = transf->height;
 
-        dst_rect.w = 24;
-        dst_rect.h = 24;
+        dst_rect.w = transf->width * transf->scale;
+        dst_rect.h = transf->height * transf->scale;
     }
 
     void update() override

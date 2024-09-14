@@ -19,6 +19,14 @@ public:
         }
         transf = &ent->get_component<transform>();
     }
+
+    void update() override
+    {
+        box.x = transf->position.x;
+        box.y = transf->position.y;
+        box.w = transf->width * transf->scale;
+        box.h = transf->height * transf->scale;
+    }
 };
 
 #define //COLLIDER_HH_
