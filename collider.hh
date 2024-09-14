@@ -9,7 +9,9 @@ class collider : public component
 public:
     SDL_Rect    box;
     std::string tag;
-    transform   transf;
+    transform*   transf;
+
+    collider(std::string t) : tag(t) {}
 
     void init() override
     {
@@ -22,11 +24,11 @@ public:
 
     void update() override
     {
-        box.x = transf->position.x;
-        box.y = transf->position.y;
+        box.x = static_cast<int>(transf->position.x);
+        box.y = static_cast<int>(transf->position.y);
         box.w = transf->width * transf->scale;
         box.h = transf->height * transf->scale;
     }
 };
 
-#define //COLLIDER_HH_
+#endif //COLLIDER_HH_

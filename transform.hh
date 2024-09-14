@@ -21,10 +21,19 @@ public:
         position.x = 0.0f;
         position.y = 0.0f;
     }
-    transform(float x, float y) 
+    transform(int sc)
+    {
+        position.x = 0.0f;
+        position.y = 0.0f;
+        scale = sc;
+    }
+    transform(float x, float y, int w, int h, int sc) 
     {
         position.x = x;
         position.y = y;
+        width = w;
+        height = h;
+        scale = sc;
     }
 
     ~transform() {}
