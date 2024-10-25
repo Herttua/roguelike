@@ -59,6 +59,7 @@ void game::update()
     {
         //std::cout << "Wall hit!" << std::endl;
         player.get_component<transform>().velocity * -1;
+        //player.get_component<transform>().velocity.zero();
     }
 }
 
