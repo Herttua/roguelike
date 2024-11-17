@@ -45,6 +45,17 @@ public:
     int x() { return position.x; }
     int y() { return position.y; }
 
+    void move_one_tile(int direction)
+    {
+        switch(direction)
+        {
+            case 0: position.x = position.x + 32;
+                break;
+
+            default: break;
+        }
+    }
+
     void update() override
     {
         position.x += velocity.x * speed;

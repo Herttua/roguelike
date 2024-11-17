@@ -40,27 +40,17 @@ void game::init(const char* title,
     player.add_component<transform>();
     player.add_component<sprite>("assets/wizard.png");
     player.add_component<keyboard>();
-    player.add_component<collider>("player");
     
     player.get_component<transform>().set_pos(50.f, 50.f);
 
     wall.add_component<transform>(200.0f, 200.0f, 24, 24, 1);
     wall.add_component<sprite>("assets/water.png");
-    wall.add_component<collider>("wall");
 }
 
 void game::update()
 {
     mastr.refresh();
     mastr.update();
-
-    if(collision::aabb(player.get_component<collider>().box,
-        wall.get_component<collider>().box))
-    {
-        //std::cout << "Wall hit!" << std::endl;
-        player.get_component<transform>().velocity * -1;
-        //player.get_component<transform>().velocity.zero();
-    }
 }
 
 void game::handle_events()

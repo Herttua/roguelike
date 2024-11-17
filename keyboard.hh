@@ -22,19 +22,19 @@ public:
 
 		if (keystates[SDL_SCANCODE_UP]) 
         {
-		    transf->velocity.y = -1;
+		    
 		}
 		if (keystates[SDL_SCANCODE_LEFT]) 
         {
-			transf->velocity.x = -1;
+			
 		}
 		if (keystates[SDL_SCANCODE_DOWN]) 
         {
-			transf->velocity.y = 1;
+			
 		}
 		if (keystates[SDL_SCANCODE_RIGHT]) 
         {
-			transf->velocity.x = 1;
+			transf->move_one_tile(0);
 		}
     }
 };
